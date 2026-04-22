@@ -11,7 +11,6 @@ class LowercaseSentenceTokenizerTest {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
         Scanner scanner = new Scanner("this is a lowercase sentence without a period");
         List<String> tokens = tokenizer.tokenize(scanner);
-
         assertEquals(List.of("this", "is", "a", "lowercase", "sentence", "without", "a", "period"), tokens);
     }
 
