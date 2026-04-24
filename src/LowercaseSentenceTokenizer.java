@@ -34,12 +34,28 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     List<String> tokens = new ArrayList<>();
     while(scanner.hasNext()){
         String temp = scanner.next();
+        
+        if(temp.charAt(temp.length()-1) == '.'){ 
+          temp = temp.replace('.', ' ');
+          temp = temp.trim();
+
+          tokens.add(temp);
+          tokens.add(".");
+        }
+        else
         tokens.add(temp);
     }
     System.out.println("HELLO" + " " + tokens.toString());
 
     return tokens;
   }
+
+      // public static void main(String[] args) {
+      
+      //   Tokenizer tokenizer = new LowercaseSentenceTokenizer();
+      //   Scanner scanner = new Scanner("Hello world. This is Dr.Smith's example.");
+      //   System.out.print(tokenizer.tokenize(scanner).toString());
+      // }
 }
 
 
