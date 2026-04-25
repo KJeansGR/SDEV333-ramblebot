@@ -44,6 +44,20 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
           tokens.add(temp.toLowerCase());
           tokens.add(".");
         }
+        else if(temp.charAt(temp.length()-1) == '!'){ 
+          temp = temp.replace('!', ' ');
+          temp = temp.trim();
+
+          tokens.add(temp.toLowerCase());
+          tokens.add("!");
+        }
+        else if(temp.charAt(temp.length()-1) == '?'){ 
+          temp = temp.replace('?', ' ');
+          temp = temp.trim();
+
+          tokens.add(temp.toLowerCase());
+          tokens.add("?");
+        }
         else
         tokens.add(temp.toLowerCase());
     }
@@ -51,14 +65,13 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     return tokens;
   }
 
-      public static void main(String[] args) {
+      // public static void main(String[] args) {
       
-        Tokenizer tokenizer = new LowercaseSentenceTokenizer();
-        Scanner scanner = new Scanner("Hello world. This is Dr.Smith's example.");
-        System.out.print(tokenizer.tokenize(scanner).toString());
-        WordPredictor u = new UnigramWordPredictor(tokenizer);
-        u.train(scanner);
-      }
+      //   Tokenizer tokenizer = new LowercaseSentenceTokenizer();
+      //   Scanner scanner = new Scanner("Hello world. This is Dr.Smith's example.");
+      //   WordPredictor u = new UnigramWordPredictor(tokenizer);
+      //   u.train(scanner);
+      // }
 
     }
 
